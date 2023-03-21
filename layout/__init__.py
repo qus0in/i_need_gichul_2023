@@ -25,5 +25,5 @@ def prev_page():
         st.session_state['page'] -= 1
 
 def next_page():
-    if st.session_state['page'] < len(get_questions()):
+    if st.session_state['page'] < len(get_questions()) - 1:
         st.session_state['page'] += 1
