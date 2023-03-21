@@ -7,11 +7,10 @@ def main():
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     page = st.session_state['page']
-    st.subheader(page.part)
-    st.header(page.chapter)
-    st.title(page.question)
-    # data = df.iloc[page]
-    # st.write(data)
+    data = df.iloc[page]
+    st.subheader(data.part)
+    st.header(data.chapter)
+    st.title(data.question)
 
     col = st.columns(5)
     with col[2]:
