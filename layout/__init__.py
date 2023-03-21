@@ -3,14 +3,17 @@ from data import get_questions, get_terms
 
 def main():
     qs = get_questions()
+    st.write(qs)
     ts = get_terms()
+    st.write(ts)
     df = qs.merge(ts, on=['part', 'chapter'])
+    st.write(df)
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     page = st.session_state['page']
-
-    data = df.iloc[page]
-    st.write(data)
+    st.write(page)
+    # data = df.iloc[page]
+    # st.write(data)
 
     col = st.columns(5)
     with col[2]:
