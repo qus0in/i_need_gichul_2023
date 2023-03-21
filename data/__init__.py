@@ -8,4 +8,4 @@ def get_questions():
 
 @st.cache_data
 def get_terms():
-    return pd.read_csv('terms.csv')
+    return pd.read_csv('./data/terms.csv')
