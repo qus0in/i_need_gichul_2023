@@ -5,9 +5,9 @@ def main():
     qs = get_questions()
     ts = get_terms()
     df = qs.merge(ts)
-    page = st.session_state['page']
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
+    page = st.session_state['page']
 
     data = df.iloc[page]
     st.write(data)
