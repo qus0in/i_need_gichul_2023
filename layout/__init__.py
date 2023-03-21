@@ -9,8 +9,8 @@ def main():
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
 
-    q = page.iloc[page]
-    st.write(q)
+    data = df.iloc[page]
+    st.write(data)
 
     col = st.columns(5)
     with col[2]:
