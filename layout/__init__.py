@@ -4,7 +4,7 @@ from data import get_questions, get_terms
 def main():
     qs = get_questions()
     ts = get_terms()
-    df = qs.merge(ts)
+    df = qs.merge(ts, on=['part', 'chapter'])
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     page = st.session_state['page']
