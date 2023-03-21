@@ -27,6 +27,6 @@ def question():
     }
     if st.button(**btn):
         if answer.lower() in data.answer.split('|'):
-            st.write('정답입니다')
+            st.success('정답입니다')
         else:
-            st.write('오답입니다')
+            st.warning('오답입니다')
