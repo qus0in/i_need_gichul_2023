@@ -23,6 +23,7 @@ def question():
     btn = {
         'label': '제출하기',
         'disabled': len(answer)==0,
+        'type': 'primary',
         'use_container_width': True,
     }
     if st.button(**btn):
@@ -31,5 +32,4 @@ def question():
         else:
             st.warning('오답입니다')
         st.button('다음으로',
-            type='secondary',
             use_container_width= True)
