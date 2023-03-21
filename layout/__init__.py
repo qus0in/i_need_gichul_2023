@@ -7,7 +7,7 @@ def main():
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     page = st.session_state['page']
-    data = df.iloc[page]
+    data = qs.iloc[page]
     st.subheader(data.part)
     st.header(data.chapter)
     st.title(data.question)
