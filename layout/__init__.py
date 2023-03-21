@@ -30,9 +30,7 @@ def question():
         if answer.lower() in data.answer.split('|'):
             st.success('정답입니다')
         else:
-            st.warning(f'''
-            오답입니다
-            답 : {data.answer}
-            ''')
+            st.warning('오답입니다')
+            st.markdown(f'답 : {data.answer}')
         st.button('다음으로',
             use_container_width= True)
