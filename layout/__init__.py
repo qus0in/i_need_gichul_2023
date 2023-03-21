@@ -10,7 +10,7 @@ def main():
     data = qs.iloc[page]
     st.subheader(data.part)
     st.header(data.chapter)
-    st.title(data.title)
+    st.markdwon(f"> {data.title}")
 
     col = st.columns(5)
     with col[2]:
@@ -24,5 +24,5 @@ def prev_page():
         st.session_state['page'] -= 1
 
 def next_page():
-    if st.session_state['page'] <= len(get_questions()):
+    if st.session_state['page'] < len(get_questions()):
         st.session_state['page'] += 1
