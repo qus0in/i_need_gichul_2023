@@ -16,6 +16,11 @@ def main():
     if not np.isnan(data.description):
         st.markdown(data.description)
     st.text_input('정답 입력', key='answer')
-    st.button('제출하기',
-        disabled=len(st.session_state['answer'])==0,
-        use_container_width=True)
+    answer = st.session_state['answer']
+    if st.button('제출하기',
+        disabled=len(answer)==0,
+        use_container_width=True):
+        if answer in data.answer.split('|'):
+            st.write('정답입니다')
+        else:
+            st.write('오답입니다')
