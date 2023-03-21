@@ -10,7 +10,7 @@ def main():
     data = qs.iloc[page]
     st.subheader(data.part)
     st.header(data.chapter)
-    st.markdwon(f"> {data.title}")
+    st.markdown(f"> {data.title}")
 
     col = st.columns(5)
     with col[2]:
