@@ -11,7 +11,7 @@ def main():
     data = qs.iloc[page]
     part = ts[(ts.part == data.part) & (ts.chapter == 0)].iloc[0,2]
     chapter = ts[(ts.part == data.part) & (ts.chapter == data.chapter)].iloc[0,2]
-    st.markdown(f"{part} / {chapter}")
+    st.markdown(f"*{part} / {chapter}*")
     st.markdown(f"> {data.title}")
     if not np.isnan(data.description):
         st.markdown(data.description)
@@ -19,10 +19,3 @@ def main():
     st.button('제출하기',
         disabled=len(st.session_state['answer'])==0,
         use_container_width=True)
-def prev_page():
-    if st.session_state['page'] > 0:
-        st.session_state['page'] -= 1
-
-def next_page():
-    if st.session_state['page'] < len(get_questions()) - 1:
-        st.session_state['page'] += 1
