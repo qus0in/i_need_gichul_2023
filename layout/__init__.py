@@ -1,11 +1,11 @@
 import streamlit as st
 from data import get_questions
 
-page = st.session_state['page']
-
 def main():
     qs = get_questions()
     col = st.columns(5)
+    page = st.session_state['page']
+    
     if 'page' not in st.session_state:
         st.session_state['page'] = 1
     
@@ -16,8 +16,9 @@ def main():
         col3.button('▶️', on_click=next_page)
     
 def prev_page():
-    if page > 1:
-        page -= 1
+    if st.session_state['page'] > 1:
+        st.session_state['page'] -= 1
+
 def next_page():
-    if page < len(get_questions()):
-        page += 1
+    if st.session_state['page'] < len(get_questions()):
+        st.session_state['page'] += 1
