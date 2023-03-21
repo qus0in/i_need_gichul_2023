@@ -10,7 +10,7 @@ def main():
     data = qs.iloc[page]
     st.subheader(data.part)
     st.header(data.chapter)
-    st.title(data.question)
+    st.title(data.title)
 
     col = st.columns(5)
     with col[2]:
