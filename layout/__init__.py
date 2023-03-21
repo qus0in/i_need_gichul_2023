@@ -12,7 +12,7 @@ def main():
     with col[2]:
         col1, col2, col3 = st.columns(3)
         col1.button('◀️', on_click=prev_page)
-        col2.markdown(f"{page} / len(qs)")
+        col2.markdown(f"{page} / {len(qs)}")
         col3.button('▶️', on_click=next_page)
     
 def prev_page():
