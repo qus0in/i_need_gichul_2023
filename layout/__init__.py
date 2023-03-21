@@ -10,7 +10,8 @@ def main():
     data = qs.iloc[page]
     part = ts[(ts.part == data.part) & (ts.chapter == 0)].iloc[0,2]
     chapter = ts[(ts.part == data.part) & (ts.chapter == data.chapter)].iloc[0,2]
-    st.markdown(f"#### {part} / {chapter}")
+    st.markdown(f"{part} / {chapter}")
+    st.markdown("---")
     st.markdown(f"> {data.title}")
 
     col = st.columns(5)
