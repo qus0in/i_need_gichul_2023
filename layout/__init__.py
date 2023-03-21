@@ -12,13 +12,6 @@ def main():
     chapter = ts[(ts.part == data.part) & (ts.chapter == data.chapter)].iloc[0,2]
     st.markdown(f"{part} / {chapter}")
     st.markdown(f"> {data.title}")
-
-    col = st.columns(5)
-    with col[2]:
-        col1, col2, col3 = st.columns(3)
-        col1.button('◀️', on_click=prev_page)
-        col2.markdown(f"{page+1} / {len(qs)}")
-        col3.button('▶️', on_click=next_page)
     
 def prev_page():
     if st.session_state['page'] > 0:
