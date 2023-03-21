@@ -8,8 +8,8 @@ def main():
         st.session_state['page'] = 0
     page = st.session_state['page']
     data = qs.iloc[page]
-    part = ts[(ts.part == data.part) & (ts.chapter == 0)].name
-    chapter = ts[(ts.part == data.part) & (ts.chapter == data.chapter)].name
+    part = ts[(ts.part == data.part) & (ts.chapter == 0)]['name']
+    chapter = ts[(ts.part == data.part) & (ts.chapter == data.chapter)]['name']
     st.markdown(f"`{part}`")
     st.markdown(f"`{chapter}`")
     st.markdown(f"> {data.title}")
