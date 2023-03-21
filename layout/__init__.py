@@ -16,6 +16,9 @@ def main():
     if not np.isnan(data.description):
         st.markdown(data.description)
     st.text_input('정답 입력', key='answer')
+    st.button('제출하기',
+        disabled=st.session_state['answer'],
+        use_container_width=True)
 def prev_page():
     if st.session_state['page'] > 0:
         st.session_state['page'] -= 1
