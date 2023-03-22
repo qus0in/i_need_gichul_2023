@@ -7,7 +7,7 @@ def question():
     page = st.session_state['page']
     if page == len(qs):
         return st.write('끗')
-    if session_state.get('question', True):
+    if st.session_state.get('question', True):
         data = qs.iloc[page]
         get_name = lambda x: ts.query(
             f'part == {data.part}').query(f'chapter == {x}').iloc[0,2]
