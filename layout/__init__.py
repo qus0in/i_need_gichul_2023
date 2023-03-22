@@ -23,18 +23,23 @@ def question():
     answer = st.session_state['answer']
     btn = {
         'label': '제출하기',
-        'disabled': len(answer)==0,
         'type': 'primary',
         'use_container_width': True,
     }
     
     if st.button(**btn):
-        if answer.lower() in data.answer.split('|'):
+        correct = None
+        if data.kind == '단답':
+            correct = answer.lower() in data.answer.split('|')
+        if correct:
             st.success('정답입니다')
         else:
             st.warning('오답입니다')
-            st.markdown(f'**답** : {data.answer}')
-
+        st.markdown(f'**답** : {data.answer}')
         st.button('다음으로',
             use_container_width=True,
-            on_click=lambda : st.session_state.update({'page': page+1}))
+            on_click=next_question)
+
+def next_question():
+    st.session_state.update({'page': page+1})
+    st.session_state['answer'] = ''
