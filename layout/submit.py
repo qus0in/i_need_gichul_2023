@@ -1,6 +1,6 @@
 import streamlit as st
 
-def handle_submit(data):
+def submit(data):
     st.session_state['question'] = False
     answer = st.session_state['answer']
     correct = None
