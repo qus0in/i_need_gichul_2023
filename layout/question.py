@@ -1,12 +1,14 @@
 import streamlit as st
 
 from data import get_questions, get_terms
+from layout.submit import submit
 
 def question():
     qs, ts = get_questions(), get_terms()
     page = st.session_state['page']
     if page == len(qs):
-        return st.write('끗')
+        last_page()
+        return
     if st.session_state.get('question', True):
         data = qs.iloc[page]
         get_name = lambda x: ts.query(
@@ -33,23 +35,15 @@ def question():
         col1, col2 = st.columns(2)
         col1.button(**btn1)
         col2.button(**btn2)
+        return
+
+def last_page():
+    c_cnt = st.session_state['correct_cnt']
+    w_cnt = st.session_state['wrong_cnt']
+    st.write(f"> 맞힌 문제 : {c_cnt} / 전체 문제 : {c_cnt + w_cnt}")
+    st.write(f"> 정답률 : {c_cnt / w_cnt * 100 : .2f}%")
 
 def next_question():
     st.session_state['page'] += 1
     st.session_state['answer'] = ''
     st.session_state['question'] = True
-
-def handle_submit(data):
-    st.session_state['question'] = False
-    answer = st.session_state['answer']
-    correct = None
-    if data.kind == '단답':
-        correct = answer.lower() in data.answer.split('|')
-    if correct:
-        st.success('정답입니다')
-    else:
-        st.warning('오답입니다')
-    st.markdown(f'**답** : {data.answer}')
-    st.button('다음으로',
-        use_container_width=True,
-        on_click=next_question)
