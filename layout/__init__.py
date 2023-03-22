@@ -42,6 +42,7 @@ def question():
             st.markdown(f'**답** : {data.answer}')
         st.markdown(
             '''
+            <div class=utterances></div>
             <script src="https://utteranc.es/client.js"
                 repo="qus0in/i_need_gichul_2023"
                 issue-term="url"
