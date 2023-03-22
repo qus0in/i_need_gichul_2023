@@ -44,9 +44,8 @@ def question():
         st.components.v1.html(
             """
             <script src="https://utteranc.es/client.js"
-                label="💬 댓글"
                 repo="qus0in/i_need_gichul_2023"
-                issue-term="url"
+                issue-term="pathname"
                 theme="github-light"
                 crossorigin="anonymous"
                 async>
