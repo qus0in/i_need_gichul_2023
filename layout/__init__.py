@@ -1,8 +1,5 @@
 import streamlit as st
-
 import numpy as np
-from urllib import parse
-
 from data import get_questions, get_terms
 
 def main():
@@ -20,7 +17,7 @@ def question():
     params = {
         "part": part,
         "chapter": chapter,
-        "title": parse.quote(data.title)
+        "info": data.info,
     }
     st.experimental_set_query_params(
         **params
