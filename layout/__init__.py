@@ -59,8 +59,7 @@ def question():
             </head>
             """,
             height=500,
-            scrolling=True,
-            unsafe_allow_html=True
+            scrolling=True
         )
         st.button('다음으로',
             use_container_width=True)
