@@ -21,13 +21,13 @@ def question():
         'label': '✅ 제출하기',
         'type': 'primary',
         'use_container_width': True,
-        'on_click': handle_submit
+        'on_click': lambda : handle_submit(data)
     }
     btn2 = {
         'label': '😖 넘기기',
         'type': 'secondary',
         'use_container_width': True,
-        'on_click': handle_submit
+        'on_click': lambda : handle_submit(data)
     }
     col1, col2 = st.columns(2)
     with col1: st.button(**btn1)
@@ -37,7 +37,7 @@ def next_question():
     st.session_state['page'] += 1
     st.session_state['answer'] = ''
 
-def handle_submit():
+def handle_submit(data):
     correct = None
     if data.kind == '단답':
         correct = answer.lower() in data.answer.split('|')
