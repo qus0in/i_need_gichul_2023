@@ -16,7 +16,6 @@ def question():
     if type(data.description) != float:
         st.markdown(data.description)
     st.text_input('정답 입력', key='answer')
-    answer = st.session_state['answer']
     btn1 = {
         'label': '✅ 제출하기',
         'type': 'primary',
@@ -38,6 +37,7 @@ def next_question():
     st.session_state['answer'] = ''
 
 def handle_submit(data):
+    answer = st.session_state['answer']
     correct = None
     if data.kind == '단답':
         correct = answer.lower() in data.answer.split('|')
