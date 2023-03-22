@@ -18,15 +18,13 @@ def question():
     st.text_input('정답 입력', key='answer')
     answer = st.session_state['answer']
     btn1 = {
-        'label': '제출하기',
-        'icon': '✅',
+        'label': '✅ 제출하기',
         'type': 'primary',
         'use_container_width': True,
         'on_click': handle_submit
     }
     btn2 = {
-        'label': '넘기기',
-        'icon': '😖',
+        'label': '😖 넘기기',
         'type': 'secondary',
         'use_container_width': True,
         'on_click': handle_submit
@@ -34,8 +32,6 @@ def question():
     col1, col2 = st.columns(2)
     with col1: st.button(**btn1)
     with col2: st.button(**btn2)
-    
-    
 
 def next_question():
     st.session_state['page'] += 1
