@@ -7,17 +7,6 @@ def main():
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     with st.container(): question()
-    st.components.v1.html(
-            """
-            <script src="https://utteranc.es/client.js"
-                    repo="qus0in/i_need_gichul_2023"
-                    issue-term="pathname"
-                    theme="github-light"
-                    crossorigin="anonymous"
-                    async>
-            </script>
-            """
-        )
 
 def question():
     qs, ts = get_questions(), get_terms()
