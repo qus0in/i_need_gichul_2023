@@ -49,7 +49,9 @@ def question():
                 crossorigin="anonymous"
                 async>
             </script>
-            '''
+            ''',
+            unsafe_allow_html=True
+            
         )
         st.button('다음으로',
             use_container_width=True)
