@@ -17,7 +17,7 @@ def question():
     params = {
         "part": part,
         "chapter": chapter,
-        "info": data.info,
+        "info": data['info'],
     }
     st.experimental_set_query_params(
         **params
