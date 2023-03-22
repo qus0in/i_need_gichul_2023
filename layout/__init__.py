@@ -35,11 +35,30 @@ def question():
         'type': 'primary',
         'use_container_width': True,
     }
+    
     if st.button(**btn):
         if answer.lower() in data.answer.split('|'):
             st.success('정답입니다')
         else:
             st.warning('오답입니다')
             st.markdown(f'**답** : {data.answer}')
+            import streamlit.components.v1 as components
+
+        # utterances 댓글 스크립트 추가
+        components.html(
+            """
+            <head>
+            <script src="https://utteranc.es/client.js"
+                    repo="qus0in/i_need_gichul_2023"
+                    issue-term="url"
+                    label="comment"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+            </head>
+            """,
+            allow_loading_later=True
+        )
         st.button('다음으로',
             use_container_width=True)
