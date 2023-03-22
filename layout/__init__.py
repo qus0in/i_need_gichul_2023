@@ -15,14 +15,6 @@ def question():
     get_name = lambda x: ts.query(f'part == {data.part}').query(f'chapter == {x}').iloc[0,2]
     part = get_name(0)
     chapter = get_name(data.chapter)
-    params = {
-        "part": part,
-        "chapter": chapter,
-        "info": data['info'],
-    }
-    st.experimental_set_query_params(
-        **params
-    )
     st.markdown(f"*{part} / {chapter}*")
     st.markdown(f"> {data.title}")
     if not np.isnan(data.description):
@@ -42,7 +34,6 @@ def question():
         else:
             st.warning('오답입니다')
             st.markdown(f'**답** : {data.answer}')
-            import streamlit.components.v1 as components
 
         st.button('다음으로',
             use_container_width=True)
