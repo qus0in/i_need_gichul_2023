@@ -58,7 +58,8 @@ def question():
             </script>
             </head>
             """,
-            scrolling=False
+            scrolling=False,
+            allow_script=True
         )
         st.button('다음으로',
             use_container_width=True)
