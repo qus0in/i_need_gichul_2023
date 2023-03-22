@@ -1,5 +1,8 @@
 import streamlit as st
+
 import numpy as np
+from urllib import parse
+
 from data import get_questions, get_terms
 
 def main():
@@ -14,6 +17,14 @@ def question():
     get_name = lambda x: ts.query(f'part == {data.part}').query(f'chapter == {x}').iloc[0,2]
     part = get_name(0)
     chapter = get_name(data.chapter)
+    params = {
+        "part": part,
+        "chapter": chapter,
+        "title": parse.quote(data.title)
+    }
+    st.experimental_set_query_params(
+        **params
+    )
     st.markdown(f"*{part} / {chapter}*")
     st.markdown(f"> {data.title}")
     if not np.isnan(data.description):
@@ -31,6 +42,6 @@ def question():
             st.success('정답입니다')
         else:
             st.warning('오답입니다')
-            st.markdown(f'답 : {data.answer}')
+            st.markdown(f'**답** : {data.answer}')
         st.button('다음으로',
-            use_container_width= True)
+            use_container_width=True)
