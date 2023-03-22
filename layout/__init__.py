@@ -7,6 +7,17 @@ def main():
     if 'page' not in st.session_state:
         st.session_state['page'] = 0
     with st.container(): question()
+    st.components.v1.html(
+            """
+            <script src="https://utteranc.es/client.js"
+                    repo="qus0in/i_need_gichul_2023"
+                    issue-term="pathname"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+            """
+        )
 
 def question():
     qs, ts = get_questions(), get_terms()
@@ -41,16 +52,5 @@ def question():
         else:
             st.warning('오답입니다')
             st.markdown(f'**답** : {data.answer}')
-        st.components.v1.html(
-            """
-            <script src="https://utteranc.es/client.js"
-                repo="qus0in/i_need_gichul_2023"
-                issue-term="pathname"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-            </script>
-            """
-        )
         st.button('다음으로',
             use_container_width=True)
