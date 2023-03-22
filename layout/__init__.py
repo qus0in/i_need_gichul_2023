@@ -6,7 +6,8 @@ def main():
     for k in keys:
         if k not in st.session_state:
             st.session_state[k] = 0
-    with st.container(): question()
+    with st.container():
+        question()
 
 def result():
     pass

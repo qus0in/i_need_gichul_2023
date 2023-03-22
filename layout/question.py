@@ -29,8 +29,8 @@ def question():
         'on_click': lambda : handle_submit(data)
     }
     col1, col2 = st.columns(2)
-    with col1: st.button(**btn1)
-    with col2: st.button(**btn2)
+    col1.button(**btn1)
+    col2.button(**btn2)
 
 def next_question():
     st.session_state['page'] += 1
