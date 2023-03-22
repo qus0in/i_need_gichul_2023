@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import numpy as np
 from data import get_questions, get_terms
 
@@ -54,5 +55,16 @@ def question():
             unsafe_allow_html=True
             
         )
+        utterances_html = """
+        <iframe src="https://utteranc.es/client.js"
+                label="💬 댓글"
+                repo="qus0in/i_need_gichul_2023"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </iframe>
+        """
+        components.html(utterances_html, height=500)
         st.button('다음으로',
             use_container_width=True)
