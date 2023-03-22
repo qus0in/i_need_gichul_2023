@@ -41,5 +41,5 @@ def question():
             on_click=next_question)
 
 def next_question():
-    st.session_state.update({'page': page+1})
+    st.session_state['page'] += 1
     st.session_state['answer'] = ''
