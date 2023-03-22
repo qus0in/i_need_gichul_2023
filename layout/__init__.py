@@ -41,30 +41,17 @@ def question():
         else:
             st.warning('오답입니다')
             st.markdown(f'**답** : {data.answer}')
-        st.markdown(
-            '''
-            <div class=".utterances-frame"></div>
+        st.components.v1.html(
+            """
             <script src="https://utteranc.es/client.js"
-                repo="qus0in/i_need_gichul_2023"
-                issue-term="url"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-            </script>
-            ''',
-            unsafe_allow_html=True
-            
-        )
-        utterances_html = """
-        <iframe src="https://utteranc.es/client.js"
                 label="💬 댓글"
                 repo="qus0in/i_need_gichul_2023"
                 issue-term="url"
                 theme="github-light"
                 crossorigin="anonymous"
                 async>
-        </iframe>
-        """
-        components.html(utterances_html, height=500)
+            </script>
+            """
+        )
         st.button('다음으로',
             use_container_width=True)
