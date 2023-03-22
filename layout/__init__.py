@@ -11,6 +11,8 @@ def main():
 def question():
     qs, ts = get_questions(), get_terms()
     page = st.session_state['page']
+    if page == len(qs):
+        return st.write('끗')
     data = qs.iloc[page]
     get_name = lambda x: ts.query(f'part == {data.part}').query(f'chapter == {x}').iloc[0,2]
     part = get_name(0)
