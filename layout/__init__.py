@@ -17,7 +17,7 @@ def question():
     chapter = get_name(data.chapter)
     st.markdown(f"*{part} / {chapter}*")
     st.markdown(f"> {data.title}")
-    if not np.isnan(data.description):
+    if len(data.description):
         st.markdown(data.description)
     st.text_input('정답 입력', key='answer')
     answer = st.session_state['answer']
