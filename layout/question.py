@@ -24,13 +24,13 @@ def question():
             'label': '✅ 제출하기',
             'type': 'primary',
             'use_container_width': True,
-            'on_click': lambda : handle_submit(data)
+            'on_click': lambda : submit(data)
         }
         btn2 = {
             'label': '😖 넘기기',
             'type': 'secondary',
             'use_container_width': True,
-            'on_click': lambda : handle_submit(data)
+            'on_click': lambda : submit(data)
         }
         col1, col2 = st.columns(2)
         col1.button(**btn1)
