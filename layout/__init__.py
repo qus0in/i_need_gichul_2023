@@ -37,4 +37,4 @@ def question():
 
         st.button('다음으로',
             use_container_width=True,
-            on_click=lambda : st.session_state.update('page', page+1))
+            on_click=lambda : st.session_state.update({'page': page+1}))
